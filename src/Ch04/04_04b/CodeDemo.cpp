@@ -1,5 +1,5 @@
 // Complete Guide to C++ Programming Foundations
-// Exercise 04_04
+// Exercise 04_04 midway throuh explanation
 // Using Objects with Pointers, by Eduardo Corpeño 
 
 #include <iostream>
