@@ -5,12 +5,30 @@
 #include <iostream>
 #include <string>
 
-int main(){
-    std::string playerName = "Alex";
-    int score = 75;
+std::string getPlayerNames();
+int calculateScore(int baseScore, int multiplier);
+void displayScore(const std::string&, int);
 
-    std::cout << playerName << " scored " << score << " points." << std::endl;
+int main(){
+    std::string playerName = getPlayerNames();
+    int score = calculateScore(75, 2);
+
+    displayScore(playerName, score);
     
     std::cout << std::endl << std::endl;
     return 0;
 }
+
+std::string getPlayerNames(){
+    return "Alex";
+}
+
+int calculateScore(int baseScore, int multiplier) {
+    return baseScore * multiplier;
+}
+
+void displayScore(const std::string& name, int score) {
+    std::cout << name << " scored " << score << " points." << std::endl;
+}
+
+// std::cout << playerName << " scored " << score << " points." << std::endl;
