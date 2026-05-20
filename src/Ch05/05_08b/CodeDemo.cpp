@@ -1,5 +1,5 @@
 // Complete Guide to C++ Programming Foundations
-// Exercise 05_08
+// Exercise 05_08with modifications
 // Ranged For Loops, by Eduardo Corpeño 
 
 #include <iostream>
@@ -10,8 +10,8 @@ int main(){
     float average;
 
     average = 0.0f;
-    for (int i = 0; i < lapTimes.size(); i++)
-        average += lapTimes[i];
+    for (auto x : lapTimes)
+        average += x;
     average /= lapTimes.size();
     std::cout << "Average Lap Time: " << average << std::endl;
 
