@@ -1,5 +1,5 @@
 // Complete Guide to C++ Programming Foundations
-// Exercise 09_02
+// Exercise 09_02 mods
 // Opening a Text File for Reading, by Eduardo Corpeño 
 
 #include <iostream>
@@ -18,7 +18,13 @@ int main(){
     else{
         while (!inFile.eof()){
             getline(inFile, str);
-            std::cout << str << std::endl;
+            std::cout << str << ", ";
+            getline(inFile, str);
+            number = stoi(str);
+            std::cout << number << ", ";
+            getline(inFile, str);
+            letter = str[0];
+            std::cout << letter << std::endl;
         }
         inFile.close();
     }
