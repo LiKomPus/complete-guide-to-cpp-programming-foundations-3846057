@@ -1,5 +1,5 @@
 // Complete Guide to C++ Programming Foundations
-// Exercise 08_02
+// Exercise 08_02 with modifications 
 // Template Functions, by Eduardo Corpeño 
 
 #include <iostream>
@@ -16,6 +16,12 @@ int main(){
     std::cout << size_in_bits('f') << std::endl;   // Character
     std::cout << size_in_bits(32.1f) << std::endl; // Float
     std::cout << size_in_bits(32.1) << std::endl;  // Double
+
+    std::cout << "=========" << std::endl;
+    std::cout << size_in_bits((short)42) << std::endl; // Short
+    std::cout << size_in_bits(123456789L) << std::endl;  // Long
+    std::cout << size_in_bits(std::string("Hello")) << std::endl; // String
+    std::cout << size_in_bits(true) << std::endl; // Boolean
     
     std::cout << std::endl << std::endl;
     return 0;
