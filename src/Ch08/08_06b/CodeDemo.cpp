@@ -1,12 +1,14 @@
 // Complete Guide to C++ Programming Foundations
-// Exercise 08_06
+// Exercise 08_06 mods
 // Queues and Stacks, by Eduardo Corpeño 
 
 #include <iostream>
 #include <queue>
+#include <stack>
 
 int main(){
     std::queue<std::string> eventQueue;  // FIFO container for game events
+    std::stack<std::string> undoStack;  // LIFO container for undo functionality
 
     // Adding events to the queue
     eventQueue.push("Move Forward");
@@ -18,6 +20,12 @@ int main(){
         std::string currentEvent = eventQueue.front();
         std::cout << "Performing event: " << currentEvent << std::endl;
         eventQueue.pop(); 
+        undoStack.push(currentEvent);  // Add to undo stack after performing
+    }
+
+    while (!undoStack.empty()){
+        std::cout << "Undo action: " << undoStack.top() << std::endl;
+        undoStack.pop();
     }
 
     std::cout << std::endl << std::endl;
