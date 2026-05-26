@@ -1,5 +1,5 @@
 // Complete Guide to C++ Programming Foundations
-// Challenge 08_10
+// Challenge 08_10 check 08_11 for solution, kind of makes sense, but kind of weird and a lot of stuff I either haven't seen or can't remember. It is defining parts of the function "ManagePetSchedule". 
 // Virtual Pet Schedule, by Eduardo Corpeño
 
 #include <iostream>
@@ -8,7 +8,6 @@
 #include <deque>
 #include <string>
 #include <utility>
-
 
 template <typename T> using deque = std::deque<T>;
 template <typename T> using vector = std::vector<T>;
