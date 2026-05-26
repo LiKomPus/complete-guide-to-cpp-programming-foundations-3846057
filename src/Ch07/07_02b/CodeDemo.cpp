@@ -1,12 +1,102 @@
 // Complete Guide to C++ Programming Foundations
-// Exercise 07_02
+// Exercise 07_02 with modifications as relevant until and including 07_06.
 // Data Members, by Eduardo Corpeño 
 
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm> //Makes std::find work, wasn't added in 07_02b even though it is not mentioned as something to add yourself. 
+
+class Inventory {
+public:
+    // Default constructor
+    Inventory(): capacity(10){
+        items = new std::vector<std::string>();
+}
+
+    // Overloaded Constructor
+    Inventory(int capacity_i): capacity(capacity_i){
+        items = new std::vector<std::string>();
+    }
+
+    // Destructor
+    ~Inventory(){
+        delete items; // To prevent memory leak by deallocating the dynamic vector
+    }
+
+    // Add Item
+    void addItem(const std::string& item){
+        if (items->size() < capacity)
+            items->push_back(item);
+        else
+            std::cout << "Inventory is full, cannot add " << item << std::endl;
+    }
+
+    // Remove item from inventory
+    void removeItem(const std::string& item){
+        auto it = std::find(items->begin(), items->end(), item);
+        if (it != items->end())
+            items->erase(it);
+        else
+            std::cout << item << " not found in inventory" << std::endl;
+    };
+
+    // Access item by index
+    std::string getItem(int index) const{
+        if (index >= 0 && index < items->size())
+            return (*items)[index];
+        else
+            return "Index out of bounds";
+    };
+
+    // Get number of items in the inventory
+    int getItemCount() const{
+        return items->size();
+    };
+
+    // Display inventory contents
+    void displayInventory() const {
+        std::cout << "Iventory: [ ";
+        for(size_t i = 0; i < items ->size(); i++){
+            std::cout << (*items)[i];
+            if (i < items->size() - 1) std::cout << ", ";
+        }
+        std::cout << " ]" << std::endl;
+    }
+
+private:
+    std::vector<std::string> * items; // pointer to a vector of items
+    int capacity; //Maximum numbero of items allowed to carry.
+};
 
 int main(){
+    // Create an inventory with capacity of 5 items
+    Inventory myInventory(5);
+
+    // Add 5 items
+    myInventory.addItem("Health Potion");
+    myInventory.addItem("Mana Potion");
+    myInventory.addItem("Sword");
+    myInventory.addItem("Shield");
+    myInventory.addItem("Bow");
+
+    // Display current iventory
+    myInventory.displayInventory();
+
+    // Try to add another item when inventory is full
+    myInventory.addItem("Arrow");
+
+    // Remove an item
+    myInventory.removeItem("Mana Potion");
+
+    // Display the item count
+    std::cout << "The iventory now contains: " << myInventory.getItemCount() << " items" << std::endl;
+
+    // Access item by index
+    std::cout << "Item at index 2: " << myInventory.getItem(2) << std::endl;
+
+    // Display final state of inventory
+    myInventory.displayInventory();
     
     std::cout << std::endl << std::endl;
     return 0;
