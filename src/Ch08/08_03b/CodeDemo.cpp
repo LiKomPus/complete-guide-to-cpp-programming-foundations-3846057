@@ -1,5 +1,5 @@
 // Complete Guide to C++ Programming Foundations
-// Exercise 08_03
+// Exercise 08_03 with mods
 // Template Classes, by Eduardo Corpeño 
 
 #include <iostream>
@@ -19,6 +19,10 @@ int main(){
     GameEntity<int> enemy(10, 20);  // Position with integers
     std::cout << "Enemy ";
     enemy.printPosition();
+
+    GameEntity<float> treasure(12.5f, 7.8f);  // Position with floats
+    std::cout << "Treasure ";
+    treasure.printPosition();
 
     std::cout << std::endl << std::endl;
     return 0;
